@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            
+            <!-- Con esto pongo el 'titulo' -->
+            <a href="" class="navbar-brand">Menú</a>
+            
+            <!-- Este boton de acá es para cuando el viewport se hace pequeño -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Todo lo que esté dentro del siguiente div se colapsará cuando el viewport se haga pequeño -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    
+                    <!-- Todo lo que esta dentro de este 'li' es una lista desplegable -->
+                    <li class="nav-item dropdown me-3">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Enlace 1
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Enlace 1.1</a></li>
+                            <li><a class="dropdown-item" href="#">Enlace 1.2</a></li>
+                            <li><a class="dropdown-item" href="#">Enlace 1.3</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Todo lo que esta dentro de este 'li' es una lista desplegable -->
+                    <li class="nav-item dropdown me-3">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Enlace 2
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Enlace 2.1</a></li>
+                            <li><a class="dropdown-item" href="#">Enlace 2.2</a></li>
+                            <li><a class="dropdown-item" href="#">Enlace 2.3</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Todo lo que esta dentro de este 'li' es una lista desplegable -->
+                    <li class="nav-item dropdown me-3">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Enlace 3
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Enlace 3.1</a></li>
+                            <li><a class="dropdown-item" href="#">Enlace 3.2</a></li>
+                            <li><a class="dropdown-item" href="#">Enlace 3.3</a></li>
+                        </ul>
+                    </li> 
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Enlace 4</a>
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </div>
+    </nav>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

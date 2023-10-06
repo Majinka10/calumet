@@ -1,8 +1,3 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
- */
-
 var app = angular.module("app", ["ngRoute"]);
 
 app.config(function($routeProvider){
@@ -10,8 +5,8 @@ app.config(function($routeProvider){
     .when("/", { //El .when() me permite evaluar el ruteo
         templateUrl: "cajero.html",
         controller: "controlador"
-    }) 
-    .when("/productos", {
+    })
+    .when("/productos",{
         templateUrl: "productos.html",
         controller: "controlador"
     });
@@ -33,15 +28,14 @@ app.controller("controlador", function($scope){
 
     lista.addProducto = function(){
         var nombre = lista.nombre;
-        var precio = lista.precio;
+        var precio = parseFloat(lista.precio);
 
-        if(nombre != "" && precio != "" && !isNaN(precio)){
+        if(nombre != "" && !isNaN(precio) && precio > 0){
             n++;
             lista.productos.push({id:n, nombre: nombre, precio: precio});
             lista.nombre = "";
             lista.precio = "";
         }
-        
     }
 
     lista.addToKart = function(){
@@ -60,7 +54,9 @@ app.controller("controlador", function($scope){
     lista.getTotalCarrito = function(){
         var total = 0;
         lista.carrito.forEach(x => {
-            total+=x.total;
+            total += x.total;
         });
+
+        return total;
     }
 });

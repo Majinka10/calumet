@@ -38,7 +38,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         });
 });
 
-  
 app.controller("MainAngular", function($scope){
     $scope.message = "¡MAIN DE ANGULAR!";
 });

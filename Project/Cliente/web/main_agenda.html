@@ -1,0 +1,126 @@
+<div class="container-fluid mt-3" ng-controller="MainAgenda as agenda">
+        <div class="row m-1 justify-content-between">
+            <div class="col-md-3 col-12 my-2 mx-md-2 p-3 bg-dark rounded">
+                <div class="h2 mb-3 text-white">Formulario</div>
+                <form id="myForm" class="row g-3 needs-validation text-white" novalidate data-bs-theme="dark">
+                    <div class="col-md-6">
+                        <label for="validationCustom01" class="form-label">ID</label>
+                        <input type="number" class="form-control" id="validationCustom01" ng-model="agenda.id" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid ID.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="validationCustom02" class="form-label">Type ID</label>
+                        <select class="form-select" id="validationCustom02" ng-model="agenda.typeId" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>CC</option>
+                            <option>CE</option>
+                            <option>TI</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid type ID.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="validationCustom03" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="validationCustom03" ng-model="agenda.firstName" value="Shimizu" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide a valid first name.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="validationCustom04" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="validationCustom04" ng-model="agenda.lastName" value="Otto" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide a valid last name.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="inputAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" ng-model="agenda.address" placeholder="1234 Main St" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid address.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="validationCustom05" class="form-label">Email</label>
+                        <input type="email" class="form-control" ng-model="agenda.email" id="validationCustom05" required placeholder="mark@otto.com">
+                        <div class="invalid-feedback">
+                            Please provide a valid email address.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="validationCustom06" class="form-label">Phone number</label>
+                        <input type="number" class="form-control" ng-model="agenda.phone" id="validationCustom06" required placeholder="3000000000">
+                        <div class="invalid-feedback">
+                            Please enter a valid phone number.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" ng-model="agenda.favorite" id="validationCustom07" value="1">
+                            <label class="form-check-label" for="validationCustom07">
+                                Add to my favorites
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <button class="btn btn-primary" ng-click="agenda.addContacto()" value="Agregar">Add contact</button>
+                    </div>
+                </form>
+            </div>
+
+            
+            <div class="col-md-8 col-12 my-2 mx-md-2 p-3 bg-dark rounded">
+                <div class="h2 mb-3 text-white">Agenda</div>
+                <div class="table-responsive">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="d-none d-md-table-cell">ID</th>
+                                <th scope="col" class="d-none d-md-table-cell">Type ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col" class="d-none d-md-table-cell">Last</th>
+                                <th scope="col" class="d-none d-md-table-cell">Email</th>
+                                <th scope="col" class="d-none d-md-table-cell">Address</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col" class="d-none d-md-table-cell">Favorite</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                            <tr ng-repeat="c in agenda.contactos">
+                                <td>{{ c.id }}</td>
+                                <td>{{ c.typeId }}</td>
+                                <td>{{ c.firstName }}</td>
+                                <td>{{ c.lastName }}</td>
+                                <td>{{ c.address }}</td>
+                                <td>{{ c.email }}</td>
+                                <td>{{ c.phone }}</td>
+                                <td>{{ c.favorite }}</td>
+                                <td>
+                                    <a ng-click="agenda.deleteContacto(c.id)" class="btn btn-danger" value="Eliminar">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <<h4 class="h4 text-center">*No tiene validaciones*</h4>
+        </div>
+    </div>

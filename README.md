@@ -58,7 +58,7 @@ CREATE TABLE contactos (
 
 ## Instrucciones Generales de Ejecución
 
-Todos los proyectos se pueden inicializar de la misma manera, a excepción de [Project](Project), abriendo el archivo index.html que se encuentra dentro de la carpeta 'web' de cada uno o abriéndolo en Apache NetBeans y luego ejecutándolo con F6.
+Todos los proyectos se pueden inicializar de la misma manera, a excepción de "[Project](Project)", abriendo el archivo index.html que se encuentra dentro de la carpeta 'web' de cada uno o abriéndolo en Apache NetBeans y luego ejecutándolo con F6.
 
 ## Requisitos Generales
 
@@ -68,4 +68,4 @@ Todos los proyectos se pueden inicializar de la misma manera, a excepción de [P
 2. **Apache NetBeans (Opcional)**
    
 3. **Servidor Web Local (Opcional):**
-  Si deseas ejecutar el proyecto "Project" con la base de datos, es recomendable tener configurado un servidor web local. Puedes usar soluciones como Tomcat, XAMPP o MAMP según tu sistema operativo.
+  Si deseas ejecutar el proyecto "[Project](Project)" con la base de datos, es recomendable tener configurado un servidor web local. Puedes usar soluciones como Tomcat, XAMPP o MAMP según tu sistema operativo.

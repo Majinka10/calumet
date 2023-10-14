@@ -1,31 +1,37 @@
-package Modelo;
+package Persistence;
 
-import java.sql.Connection;
+import Model.Contacto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import Utility.ConexionDB;
+import java.sql.Connection;
 
 /**
- *
+ * Esta clase implementa la interfaz ContactoCRUD y se utiliza para el acceso 
+ * a los datos.
  * @author majinka
  */
-public class ContactoDAO implements CRUD{
+public class ContactoDAO implements ContactoCRUD{
     PreparedStatement ps;
-    ResultSet rs;
     Connection con;
     int res;
     String msj;
     Contacto c = new Contacto(); 
+    CrudOperations crud = new CrudOperations();
 
-
-
+    /**
+     * Recupera una lista de contactos de la base de datos.
+     * 
+     * @return Objeto List con la lista de contactos.
+     */
     @Override
     public List<Contacto> listar() {
         List<Contacto> datos = new ArrayList<>(); 
-        Conexion conex = new Conexion();
+        ConexionDB conex = new ConexionDB();
         String sql = "select * from contactos";
-        ResultSet rs = conex.consultarBD(sql);
+        ResultSet rs = crud.consultarBD(sql, conex.getConnection());
 
         try{
             while(rs.next()){
@@ -48,36 +54,22 @@ public class ContactoDAO implements CRUD{
         return datos;
     }
 
-    @Override
-    public Contacto ListarID(int id) {
-        Conexion conex = new Conexion();
-        String sql = "select * from contactos where ide="+id;
-        try{
-            con = conex.getConnection();
-            ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
-            while(rs.next()){
-                c.setId(rs.getInt("id"));
-                c.setTypeId(rs.getString("typeId"));
-                c.setFirstName(rs.getString("firstName"));
-                c.setLastName(rs.getString("lastName"));
-                c.setAddress(rs.getString("address"));
-                c.setEmail(rs.getString("email"));
-                c.setPhone(rs.getString("phone"));
-                c.setFavorite(rs.getBoolean("favorite"));
-        }
-        } catch (Exception e){
-            e.printStackTrace();
-        } finally {
-            conex.cerrarConexion();
-        }
-        
-        return c;
-    }
-
+    /**
+     * Agrega un contacto a la base de datos.
+     * 
+     * @param id    ID del contacto.
+     * @param typeId    Tipo de documentación del contacto.
+     * @param firstName Nombres del contacto.
+     * @param lastName  Apellidos del contacto.
+     * @param address   Dirección del contacto.
+     * @param email Correo electrónico del contacto.
+     * @param phone Número telefónico del contacto.
+     * @param favorite  Si el contacto es favorito o no.
+     * @return String que indica el éxito de la operación.
+     */
     @Override
     public String add(int id, String typeId, String firstName, String lastName, String address, String email, String phone, boolean favorite) {
-        Conexion conex = new Conexion();
+        ConexionDB conex = new ConexionDB();
         String sql = "insert into contactos(id, typeId, firstName, lastName, address, email, phone, favorite) values(?,?,?,?,?,?,?,?)";
         try{
             con = conex.getConnection();
@@ -102,9 +94,15 @@ public class ContactoDAO implements CRUD{
         return msj;
     }
 
+    /**
+     * Elimina un contacto de la base de datos.
+     * 
+     * @param id    ID del contacto.
+     * @return Objeto Contacto del contacto eliminado.
+     */
     @Override
     public Contacto delete(int id) {
-        Conexion conex = new Conexion();
+        ConexionDB conex = new ConexionDB();
         String sql= "delete from contactos where id="+id;
         try{
             con = conex.getConnection();
@@ -117,5 +115,4 @@ public class ContactoDAO implements CRUD{
         conex.cerrarConexion();
         return c;
     }
-    
 }

@@ -1,6 +1,6 @@
 package Servlets;
 
-import Modelo.ContactoService;
+import Persistence.ContactoDAO;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,10 +10,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import webservice.Contacto;
+import Model.Contacto;
 
 /**
- *
+ * Servlet que maneja las peticiones HTTP GET y POST para procesar acciones del
+ * cliente. Utiliza objetos 'ContactoDAO' y genera respuestas 
+ * JSON correspondientes.
  * @author majinka
  */
 public class Controlador extends HttpServlet {
@@ -23,8 +25,19 @@ public class Controlador extends HttpServlet {
     "Agregar",
     "Eliminar"});
 
-    ContactoService contacto = new ContactoService();
-
+    ContactoDAO contacto = new ContactoDAO();
+    
+    /**
+     * Maneja solicitudes HTTP y procesa las acciones utilizando los parametros
+     * de la solicitud.
+     * 
+     * @param request Solicitud HTPP entrante del cliente.
+     * @param response Respuesta HTPP que se envia al cliente.
+     * @throws ServletException Excepción en caso de un error relacionado con
+     * el servlet.
+     * @throws IOException Excepción en caso de un error relacionado con la
+     * entrada/salida.
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String proceso = request.getParameter("proceso");
@@ -42,7 +55,7 @@ public class Controlador extends HttpServlet {
                 String phone = request.getParameter("phone");
                 String favorite = request.getParameter("favorite");
                 
-                contacto.agregar(Integer.parseInt(id), typeId, firstName, lastName, address, email, phone, Boolean.parseBoolean(favorite));
+                contacto.add(Integer.parseInt(id), typeId, firstName, lastName, address, email, phone, Boolean.parseBoolean(favorite));
                                 
                 jsonResponse = "{\"ok\": true, \"proceso\": \"Agregar\", \"message\": \"El contacto fue agregado\"}";
 
@@ -57,7 +70,7 @@ public class Controlador extends HttpServlet {
             } else if (proceso.equals("Eliminar")){
                 String id = request.getParameter("id");
                 
-                contacto.eliminar(Integer.parseInt(id));
+                contacto.delete(Integer.parseInt(id));
                 
                 jsonResponse = "{\"ok\": true, \"proceso\": \"Eliminar\", \"message\": \"El contacto fue eliminado\"}";
             }

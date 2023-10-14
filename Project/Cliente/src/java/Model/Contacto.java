@@ -1,9 +1,10 @@
-package Modelo;
-
 /**
- *
+ *Esta clase abstrae la entidad de contacto.
+ * 
  * @author majinka
  */
+package Model;
+
 public class Contacto {
     int id;
     String typeId;

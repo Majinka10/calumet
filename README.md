@@ -60,7 +60,7 @@ CREATE TABLE contactos (
 
 Todos los proyectos se pueden inicializar de la misma manera, a excepción de [Project](Project), abriendo el archivo index.html que se encuentra dentro de la carpeta 'web' de cada uno o abriéndolo en Apache NetBeans y luego ejecutándolo con F6.
 
-## Requisitos
+## Requisitos Generales
 
 1. **Navegador Web:**
   Asegúrate de contar con un navegador web moderno como Google Chrome, Brave, Mozilla Firefox, o cualquier otro compatible con HTML5 y CSS3 para ejecutar los subproyectos HTML, CSS y JS, así como los proyectos basados en AngularJS.

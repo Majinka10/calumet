@@ -63,9 +63,9 @@ Todos los proyectos se pueden inicializar de la misma manera, a excepción de "[
 ## Requisitos Generales
 
 1. **Navegador Web:**
-  Asegúrate de contar con un navegador web moderno como Google Chrome, Brave, Mozilla Firefox, o cualquier otro compatible con HTML5 y CSS3 para ejecutar los subproyectos HTML, CSS y JS, así como los proyectos basados en AngularJS.
+  Navegador web moderno como Google Chrome, Brave, Mozilla Firefox, o cualquier otro compatible con HTML5 y CSS3 para ejecutar los subproyectos HTML, CSS y JS, así como los proyectos basados en AngularJS.
   
 2. **Apache NetBeans (Opcional)**
    
 3. **Servidor Web Local (Opcional):**
-  Si deseas ejecutar el proyecto "[Project](Project)" con la base de datos, es recomendable tener configurado un servidor web local. Puedes usar soluciones como Tomcat, XAMPP o MAMP según tu sistema operativo.
+  Si se desea ejecutar el proyecto "[Project](Project)" con la base de datos, es recomendable tener configurado un servidor web local. Puedes usar soluciones como Tomcat, XAMPP o MAMP según tu sistema operativo.
